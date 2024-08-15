@@ -64,26 +64,26 @@ public class BasicArray {
     System.out.println(nums[nums.length]);
   }
 
-  boolean findLin(int val) {
+  int findLin(int val) {
     for (int n : nums) {
       if (n == val) {
-        return true;
+        return n;
       }
     }
-    return false;
+    return nums.length;
   }
 
   /** Linear search */
-  boolean findBin(int val) {
+  int findBin(int val) {
     return findBin(0, nums.length, val);
   }
 
-  /** Binary Search */
-  boolean findBin(int lo, int hi, int val) {
+  /** Binary Search - my own implementation */
+  int findBin(int lo, int hi, int val) {
     int mid = lo + (hi - lo) / 2;
     System.out.println("lo: " + lo + " hi: " + hi + " val: " + val);
     if (nums[mid] == val) {
-      return true;
+      return nums[mid];
     }
     if (nums[mid] < val) {
       return findBin(mid + 1, hi, val);
@@ -91,6 +91,31 @@ public class BasicArray {
     if (nums[mid] > val) {
       return findBin(lo, mid - 1, val);
     }
-    return false;
+    return nums.length;
+  }
+
+  /** implementation from the book */
+  public int find(int searchKey) {
+    int lo = 0;
+    int hi = nums.length - 1;
+    int curIn;
+
+    while (true) {
+      curIn = (lo + hi) / 2;
+
+      if (nums[curIn] == searchKey) {
+        return curIn;
+
+      } else if (lo > hi) {
+        return nums.length;
+
+      } else {
+        if (nums[curIn] < searchKey) {
+          lo = curIn + 1;
+        } else {
+          hi = curIn - 1;
+        }
+      }
+    }
   }
 }
