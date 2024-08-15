@@ -1,5 +1,7 @@
-package co.loyyee.ch02Arrays;
+///usr/bin/env jbang "$0" "$@" ; exit $?
 
+
+import static java.lang.System.out;
 /**
  * 1. Inserting an item into an unordered array
  * a. takes time proportional to the size of the array.
@@ -9,4 +11,7 @@ package co.loyyee.ch02Arrays;
  */
 public class Q1 {
 
+    public static void main(String... args) {
+        out.println("Hello World");
+    }
 }

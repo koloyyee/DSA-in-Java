@@ -28,7 +28,7 @@ The Java Code in each directory respective to the chapter title are my attempts 
 - Underorder list: slow search and deletion
 - Ordered List: use binary search
 - Logrithm: the logarithm to the base B of a number A is (roughly) the number of times you can divide A by B before the result is less than 1.
-- Big O (best to worst): O(1) > O(log N) > O(N) > O(N^2)
+- Big O (best to worst): **O(1) > O(log N) > O(N) > O(N^2)** 
 
 ### 03 Simple Sorting
 
