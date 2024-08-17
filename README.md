@@ -32,6 +32,26 @@ The Java Code in each directory respective to the chapter title are my attempts 
 
 ### 03 Simple Sorting
 
+- Comparing the keys of data items in the array and moving the item until sorted
+- Simple sort are all O(N^2)
+- All simple sorts are in-place sort
+- Invariant in a condition that remains unchanged.
+- Bubble sort 
+  - outer pointer starts from N-1...N-N and 
+  - inner pointer starts from 0...outer
+  - swap with the rhs
+- Selection Sort
+  - outer pointer starts from 0...N-2 ( out < n -1)
+  - inner pointer starts from out + 1...N-1
+  - set outer pointer as index of the minimum
+  - swap if value with inner pointer less than minimum
+- Insertion Sort
+  - outer pointer starts from 1...N-1
+  - Each iteration inner pointer set to outer pointer 
+  - Each iteration create a temp with value of outer
+  - check when in > 0 and value of lhs of in >= temp
+    - if yes, swap, then move inner pointer to the left so temp can replace the lhs
+  - set value of inner (--in or in) to temp
 ### 04 Stack & Queues
 
 ### 05 Linked Lists
