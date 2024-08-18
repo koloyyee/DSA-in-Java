@@ -1,5 +1,7 @@
 package co.loyyee.ch03SimpleSort;
 
+/// usr/bin/env jbang "$0" "$@" ; exit $?
+
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.IntStream;
@@ -22,10 +24,10 @@ public class Projects {
             .toArray();
     var s = new Projects(MAX);
     s.batchInsert(rands);
-    //    s.time(() -> s.bidirectionalBubble());
-    //    s.time(() -> s.oddEvent());
-    //    s.time(() -> s.bubble());
-    //    s.time(() -> s.insertion());
+    s.time(() -> s.bidirectionalBubble());
+    s.time(() -> s.oddEvent());
+    s.time(() -> s.bubble());
+    s.time(() -> s.insertion());
     s.time(() -> s.insertionNoDups());
   }
 
@@ -181,26 +183,30 @@ public class Projects {
     int dupCounts = 0;
     for (out = 1; out < n; out++) { // out is diving line
       long temp = a[out]; // remove marked item
-//      System.out.println("Temp: " + temp);
+      //      System.out.println("Temp: " + temp);
       in = out; // start shifts at out
       while (in > 0 && a[in - 1] >= temp) { // until one is smaller
-        if (a[in -1] == temp) { // duplicate found
+        if (a[in - 1] == temp) { // duplicate found
           temp = -1; // mark as -1;
           dupCounts++;
         }
-        a[in] = a[in - 1]; // shift item right
-        --in; // go left one position
+        if (a[in - 1] > temp) {
+          a[in] = a[in - 1]; // shift item right
+          --in; // go left one position
+        } else {
+          break;
+        }
       }
       a[in] = temp;
     }
-    System.out.println(dupCounts);
-    if (dupCounts != 0) {
-      for (int i = dupCounts; i < n; i++) {
-        a[i - dupCounts] = a[i];
-      }
-    }
+//        System.out.println(dupCounts);
+//        if (dupCounts != 0) {
+//          for (int i = dupCounts; i < n; i++) {
+//            a[i - dupCounts] = a[i];
+//          }
+//        }
     n -= dupCounts;
-        display();
+    display();
   }
 
   public void bubble() {
