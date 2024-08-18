@@ -43,7 +43,7 @@ public class Experiments {
   }
   
  public static void exp2() {
-   System.out.println("Experiment 2: Sort 1K row with (99, 999, 99, 998...., 99,0)");
+   System.out.println("Experiment 2: Sort 10K row with (99, 999, 99, 998...., 99,0)");
     long[] kala= IntStream.range(0,MAX).mapToLong( (i) -> {
       if( i % 2 == 0 )  {
         return 99;
@@ -75,7 +75,7 @@ public class Experiments {
     System.out.println();
  }
   public static void exp1() {
-    System.out.println("Experiment 1: Sort 10K.");
+    System.out.println("Experiment 1: Sort 10K with random value from 0-9999");
     // Experiment 1
     var e = new SimpleSort(MAX);
     
