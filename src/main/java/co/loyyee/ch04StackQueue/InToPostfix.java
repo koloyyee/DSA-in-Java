@@ -159,7 +159,7 @@ public class InToPostfix{
       
       for(int i = 0; i < size(); i++ ) {
         System.out.print(peek(i));
-        System.out.println(" ");
+        System.out.print(" ");
       }
       System.out.println();
     }
