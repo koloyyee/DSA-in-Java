@@ -53,10 +53,22 @@ The Java Code in each directory respective to the chapter title are my attempts 
     - if yes, swap, then move inner pointer to the left so temp can replace the lhs
   - set value of inner (--in or in) to temp
 ### 04 Stack & Queues
+- Stack
+  - LIFO
+  - used microprocessor
+- Queue
+  - FIFO
+  - can be created as circular queue by wrapping around from the end of the array to the beginning
+- Priority queue 
+  - used multiprocessing
+  - sorted by the value
+- Evaluate Postfix or Prefix notation from Infix with Stack 
+
+
 
 ### 05 Linked Lists
 
-### 06 Recusion
+### 06 Recursion
 
 ### 07 Advance Sorting
 
