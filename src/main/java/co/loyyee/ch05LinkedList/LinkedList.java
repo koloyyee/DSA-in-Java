@@ -18,15 +18,20 @@ public class LinkedList {
 		ll.append(11, 2.2);
 		ll.append(22, 3.3);
 		ll.print();
+    System.out.println(
+				"FOUND!  " + ll.find(22)
+		);
 		ll.prepend(0, 1.1);
 		ll.print();
 		ll.removeFirst();
-		ll.removeByValue(11, 2.2);
+    System.out.println(
+		"REMOVE! " + ll.remove(11)
+		);
 		ll.print();
 		ll.append(44, 5.5);
 		ll.append(55, 6.6);
 		ll.print();
-		ll.removeByValue(44, 5.5);
+		ll.remove(44 );
 		ll.print();
 		ll.removeLast();
 		ll.print();
@@ -71,7 +76,7 @@ public class LinkedList {
 		return val;
 	}
 	
-	public Node removeByValue(int val, double val2 ) {
+	public Node remove(int val ) {
 		if( first == null )	return null;
 		if(first.iData == val ) {
 			Node curr = first;
@@ -81,10 +86,20 @@ public class LinkedList {
 		Node curr = first;
 		
 		while(curr.next != null ) {
-			if(curr.next.iData == val && curr.next.dData == val2){
+			if(curr.next.iData == val){
 				Node target = curr.next;
 				curr.next = curr.next.next;
 				return target;
+			}
+			curr = curr.next;
+		}
+		return curr;
+	}
+	public Node find(int val) {
+		Node curr = first;
+		while (curr != null) {
+			if (curr.iData == val || curr.dData == val) {
+				return curr;
 			}
 			curr = curr.next;
 		}
