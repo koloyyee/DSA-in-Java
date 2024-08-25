@@ -1,5 +1,6 @@
 package co.loyyee.ch04StackQueue;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -445,12 +446,14 @@ class SupermarketQueue {
                 line1.remove();
               }
               line1.display();
+              System.out.println(LocalDateTime.now());
               break;
             case 2:
               line2.display();
               if (!line2.isEmpty()) {
                 line2.remove();
               }
+              System.out.println(LocalDateTime.now());
               line2.display();
               break;
             case 3:
@@ -458,6 +461,7 @@ class SupermarketQueue {
               if (!line3.isEmpty()) {
                 line3.remove();
               }
+              System.out.println(LocalDateTime.now());
               line3.display();
               break;
             default:
