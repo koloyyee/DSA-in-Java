@@ -18,9 +18,20 @@ public class LinkedList {
 		ll.append(11, 2.2);
 		ll.append(22, 3.3);
 		ll.print();
-//		ll.prepend(0, 1.1);
-//		ll.print();
+		ll.prepend(0, 1.1);
+		ll.print();
+		ll.removeFirst();
+		ll.removeByValue(11, 2.2);
+		ll.print();
+		ll.append(44, 5.5);
+		ll.append(55, 6.6);
+		ll.print();
+		ll.removeByValue(44, 5.5);
+		ll.print();
+		ll.removeLast();
+		ll.print();
 	}
+	
 	public void append( int val1, double val2) {
 			Node newNode = new Node(val1, val2);
 			if ( first == null)	 {
@@ -48,16 +59,27 @@ public class LinkedList {
 	}
 	
 	public Node removeLast() {
-		Node val = first;
-		while(val.next != null )	{
-			val = val.next;
+		Node curr = first;
+		Node prev = first;
+		while(curr.next != null )	{
+			prev = curr;
+			curr = curr.next;
 		}
+		Node val = curr;
+		prev.next = null;
+		this.print();
 		return val;
 	}
+	
 	public Node removeByValue(int val, double val2 ) {
 		if( first == null )	return null;
-		if(first.iData == val && first.dData == val2) return first;
+		if(first.iData == val ) {
+			Node curr = first;
+			first = first.next;
+			return curr;
+		}
 		Node curr = first;
+		
 		while(curr.next != null ) {
 			if(curr.next.iData == val && curr.next.dData == val2){
 				Node target = curr.next;
@@ -66,7 +88,7 @@ public class LinkedList {
 			}
 			curr = curr.next;
 		}
-		return null;
+		return curr;
 	}
 	
 	public boolean isEmpty() { return first == null;}
@@ -81,6 +103,7 @@ public class LinkedList {
 			curr.display();
 			curr = curr.next;
 		}
+    System.out.println();
 	}
 	
 	class Node {
