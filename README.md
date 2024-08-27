@@ -67,8 +67,10 @@ The Java Code in each directory respective to the chapter title are my attempts 
 
 
 ### 05 Linked Lists
+- Data types: data type's permissible operation are an inseparable part of its identity.
 - ADTs: Abstract Data Types, focus on what it does and ignoring how it does its job, 
   - e.g: Stack and Queue can be created with linked list or array.
+- 
 
 ### 06 Recursion
 
