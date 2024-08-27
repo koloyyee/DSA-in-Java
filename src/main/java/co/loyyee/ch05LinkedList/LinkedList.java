@@ -36,7 +36,6 @@ public class LinkedList {
 		ll.removeLast();
 		ll.print();
 	}
-	
 	public void append( int val1, double val2) {
 			Node newNode = new Node(val1, val2);
 			if ( first == null)	 {
