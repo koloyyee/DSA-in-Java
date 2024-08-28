@@ -70,7 +70,12 @@ The Java Code in each directory respective to the chapter title are my attempts 
 - Data types: data type's permissible operation are an inseparable part of its identity.
 - ADTs: Abstract Data Types, focus on what it does and ignoring how it does its job, 
   - e.g: Stack and Queue can be created with linked list or array.
-- 
+- Linked List consist of  Node(s) and Data
+- Doubly Linked List have a previous and current Node
+- Insertion is O(N)
+- Deletion in small set is O(1)
+- Doubly Linked List is the base of Deque
+- Iterator allows users to traverse the linked list, keep track of the current Node
 
 ### 06 Recursion
 

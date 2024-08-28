@@ -19,7 +19,7 @@ public class SortedList {
   public void insert(int val){
     Node newNode = new Node(val);
     Node curr = first ;
-    Node prev = first;
+    Node prev = null ;
     while(curr != null && val > curr.iData) {
       prev = curr;
       curr = curr.next;
