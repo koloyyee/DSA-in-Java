@@ -2,6 +2,7 @@ package co.loyyee.ch05LinkedList;
 
 /**
  * Same ADT but implemented in Linked List instead of Array
+ * 5.2 - This is Deque.
  * */
 public class QueueLinkedList {
 	
