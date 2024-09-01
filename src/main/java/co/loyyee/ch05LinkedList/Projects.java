@@ -109,7 +109,7 @@ class CircularLinkedList {
       current = newNode;
       current.next = current;
     } else {
-      newNode.next = current;
+      newNode.next = current.next;
       current.next = newNode;
       current = newNode;
     }
@@ -177,4 +177,201 @@ class CircularLinkedList {
       return "{ " + data + " } ";
     }
   }
+}
+
+/** 5.4 */
+class Stack {
+  private Node top;
+  
+ Stack() {
+    top = null;
+  }
+ public static void main(String[] args){
+   var s = new Stack();
+   s.push(5);
+   s.push(10);
+   s.print();
+   s.pop();
+    System.out.println("---------------");
+   s.print();
+   
+ }
+  void push(int val ) {
+    Node newNode = new Node(val);
+    if( top != null ) {
+      newNode.next = top;
+    }
+    top = newNode;
+  }
+  Node pop() {
+    Node val = top;
+    top = top.next;
+    return val;
+  }
+  
+  void print( ) {
+   Node curr = top;
+   
+   while(curr != null ) {
+      System.out.println(curr);
+     curr = curr.next;
+   }
+  }
+  
+  class Node {
+    public int data;
+    public Node next;
+    
+    public Node(int val) {
+      data = val;
+      next = null;
+    }
+    
+    public String toString() {
+      return "{ " + data + " } ";
+    }
+  }
+}
+
+/**
+ * 5.5<br>
+ * Steps: <br>
+ * 1. Create an application that uses a circular linked list <br>
+ * 2. Inputs are the number of people in the circle, the number used for counting off,
+ * and the number of the person where counting starts (usually 1). <br>
+ * 3. The output is the list of persons being eliminated.<br>
+ * 4. When a person drops out of the circle,
+ * counting starts again from the person who was on his left
+ * (assuming you go around clockwise). <br>
+ * <hr>
+ *   example: <br>
+ *   There are seven people numbered 1 through 7,
+ *   and you start at 1 and count off by threes.
+ *   People will be eliminated in the order 4, 1, 6, 5, 7, 3. Number 2 will be left.
+ * */
+class JosephusProblem {
+  
+  public Node current;
+  private int countOff;
+  private int capacity;
+ 
+  public JosephusProblem(int capacity, int countOff) {
+    this.countOff = countOff;
+    this.capacity= capacity;
+    // populate
+    for(int i = 1; i < capacity + 1; i++) {
+      insert(i);
+    }
+  }
+  
+  public static void main(String[] args){
+    int capacity = 7;
+    int countOff = 3;
+    
+    var jp = new JosephusProblem(capacity, countOff);
+//    jp.print();
+    jp.execute();
+  }
+  
+  public Node kill() {
+    
+    for(int i = 0; i < countOff + 1 ; i++) {
+      step();
+    }
+    Node person = remove();
+    System.out.println("Killed " + person);
+    return person;
+  }
+  
+  public Node execute() {
+    Node person = new Node(0);
+    while (person != null ) {
+      person = kill();
+      print();
+    }
+    person = current;
+    System.out.println("Last person standing: " + person);
+    return person;
+  }
+  
+  public void step() {
+    if(current != null ) {
+       current = current.next;
+    }
+  }
+  private void insert(int val ) {
+    Node newNode = new Node(val);
+    if(current == null )  {
+      current = newNode;
+      current.next = current;
+    } else {
+      newNode.next = current.next;
+      current.next = newNode;
+      current = newNode;
+    }
+    
+  }
+  
+  private Node find(int val ) {
+    if( current.data != val ) {
+      int key = current.data;
+      while( val != key ) {
+        if( current.data == key ) {
+          return null;
+        } else {
+          current = current.next;
+        }
+      }
+    }
+    return current;
+  }
+  
+  Node remove() {
+    return remove(current.data);
+  }
+  
+  Node remove(int val)  {
+    if( find(val) == null ) {
+      return null;
+    }
+    while(current.next.data != val ) {
+      if(current != null ) {
+        current = current.next;
+      }
+    }
+    var target = current.next;
+    if(current == current.next) {
+      return null;
+    } else {
+      current.next = current.next.next;
+    }
+    return target;
+  }
+  
+  void print() {
+    var val = current;
+    System.out.print(val);
+    if(current != null ) {
+      current = current.next;
+    }
+    while(current.data != val.data ) {
+      System.out.print(current);
+      current = current.next;
+    }
+  }
+  
+  class Node {
+    public int data;
+    public Node next;
+    
+    public Node(int val ) {
+      data = val;
+      next = null;
+    }
+    public String toString() {
+      return "{ " + data + " } ";
+    }
+  }
+  
+  
 }
